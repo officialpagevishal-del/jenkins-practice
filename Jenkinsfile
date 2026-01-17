@@ -4,20 +4,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Build from GitHub Jenkinsfile'
+                echo 'Building app'
             }
         }
 
-        stage('Test') {
+        stage('Docker Build') {
             steps {
-                echo 'Test from GitHub Jenkinsfile'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploy from GitHub Jenkinsfile'
+                sh 'docker build -t jenkins-demo:v1 .'
             }
         }
     }
 }
+
